@@ -29,6 +29,9 @@ class Controls {
     canvas.onmousemove = event => this.onMouseMove(event);
     window.onkeydown = event => this.onKeyDown(event);
     window.onkeyup = event => this.onKeyUp(event);
+    canvas.touchstart = event => this.onMouseDown(event);
+    canvas.touchend = event => this.onMouseUp(event);
+    canvas.touchmove = event => this.onMouseMove(event);
   }
 
   // Sets picker for picking objects
