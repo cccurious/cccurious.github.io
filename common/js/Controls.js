@@ -24,14 +24,11 @@ class Controls {
     this.motionFactor = 10;
     this.keyIncrement = 5;
 
-    canvas.onmousedown = event => this.onMouseDown(event);
-    canvas.onmouseup = event => this.onMouseUp(event);
-    canvas.onmousemove = event => this.onMouseMove(event);
+    canvas.onpointerdown = event => this.onPointerDown(event);
+    canvas.onpointerup = event => this.onPointerUp(event);
+    canvas.onpointermove = event => this.onPointerMove(event);
     window.onkeydown = event => this.onKeyDown(event);
     window.onkeyup = event => this.onKeyUp(event);
-    canvas.touchstart = event => this.onMouseDown(event);
-    canvas.touchend = event => this.onMouseUp(event);
-    canvas.touchmove = event => this.onMouseMove(event);
   }
 
   // Sets picker for picking objects
@@ -60,7 +57,7 @@ class Controls {
     };
   }
 
-  onMouseUp(event) {
+  onPointerUp(event) {
     this.dragging = false;
 
     if (!event.shiftKey && this.picker) {
@@ -69,7 +66,7 @@ class Controls {
     }
   }
 
-  onMouseDown(event) {
+  onPointerDown(event) {
     this.dragging = true;
 
     this.x = event.clientX;
@@ -86,7 +83,7 @@ class Controls {
     if (!this.picking) this.picker.stop();
   }
 
-  onMouseMove(event) {
+  onPointerMove(event) {
     this.lastX = this.x;
     this.lastY = this.y;
 
